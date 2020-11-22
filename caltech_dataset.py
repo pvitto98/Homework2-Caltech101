@@ -48,7 +48,7 @@ class Caltech(VisionDataset):
                 c_id = class_to_idx[c_name] #trovo il suo id
                 self.samples.append(tuple((i, c_id))) # e lo metto nella lista di samples
     
-        def _find_classes(self, dir: str):
+    def _find_classes(self, dir: str):
             """
             Finds the class folders in a dataset.
 
