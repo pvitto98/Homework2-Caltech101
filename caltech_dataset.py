@@ -5,8 +5,7 @@ from PIL import Image
 import os
 import os.path
 import sys
-import pandas as pd
-
+import pandas
 def pil_loader(path):
     # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
     with open(path, 'rb') as f:
@@ -32,7 +31,7 @@ class Caltech(VisionDataset):
         
         
         self.txt_list = self.split+".txt"    #cosí ho la lista dei file che adopereró ["train.txt", "test.txt"]
-        df = pd.read_csv("/content/Caltech101/"+self.txt_list, sep=' ', index_col=0) #leggo i file
+        df = pandas.read_csv("/content/Caltech101/"+self.txt_list, sep=' ', index_col=0) #leggo i file
         #con index_col=0 impongo pandas a mettere il label all'indice 0
         #sep ' ' é il separatore 
         self.img_names = df.index.values
